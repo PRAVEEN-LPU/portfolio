@@ -1,11 +1,13 @@
-# Exclude personal media, photos and CV/PDF documents from GitHub
+# Ignore all images and pdfs by default, but allow the portfolio photo (image.png)
 *.png
+!image.png
+image_original.png
 *.jpg
 *.jpeg
 *.pdf
 *.zip
 
-# Diagnostic and build scripts
+# Diagnostic and temporary files
 *.py
 *.log
 .venv/
