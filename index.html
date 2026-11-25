@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Metadata -->
+    <title>Praveen Kumar | B.Tech CSE (AI & ML) Portfolio</title>
+    <meta name="description" content="Portfolio of Praveen Kumar - B.Tech Computer Science & Engineering (AI & ML) student at Lovely Professional University. Aspiring AI Engineer, Python & Full-Stack Web Developer.">
+    <meta name="keywords" content="Praveen Kumar, Portfolio, AI ML, Python Developer, Web Developer, Lovely Professional University, LPU">
+    <meta name="author" content="Praveen Kumar">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <!-- Typed.js for smooth typing effect -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+<body>
+
+    <!-- Prichard.hu Style Ambient Background Engine -->
+    <div class="hero-bg-effects fixed inset-0 overflow-hidden pointer-events-none" id="bgEffects">
+        <canvas id="starCanvas" class="bg-stars-canvas"></canvas>
+        <div class="grid-pattern-overlay"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-cursor" id="orbCursor"></div>
+        <div class="noise-overlay"></div>
+        <div class="glow-line top"></div>
+        <div class="glow-line left-line"></div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-badge">PK</span>
+                <span class="logo-text">Praveen <span>Kumar</span></span>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#leetcode" class="nav-link">LeetCode</a></li>
+                    <li><a href="#journey" class="nav-link">Journey</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-primary btn-sm download-cv-btn" id="navDownloadCvBtn" title="Download Praveen's Official CV">
+                    <i class='bx bx-download'></i> Download CV
+                </button>
+                <a href="https://www.linkedin.com/in/praveen-kumar7/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin btn-sm">
+                    <i class='bx bxl-linkedin'></i> Connect
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>Available for Internships & Projects</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Praveen Kumar</span>
+                </h1>
+
+                <div class="hero-typewriter">
+                    <span>I am a </span>
+                    <span class="typed-text"></span>
+                </div>
+
+                <p class="hero-bio">
+                    B.Tech Computer Science & Engineering student specializing in <strong>Artificial Intelligence & Machine Learning</strong> at <strong>Lovely Professional University</strong>. Passionate about solving real-world challenges through data-driven AI systems and intuitive modern web development.
+                </p>
+
+                <div class="hero-cta">
+                    <button class="btn btn-primary download-cv-btn" id="heroDownloadCvBtn" title="Download Official CV (PDF)">
+                        <i class='bx bx-download'></i> Download CV
+                    </button>
+                    <a href="#projects" class="btn btn-outline">
+                        <i class='bx bx-folder-open'></i> View Work
+                    </a>
+                    <a href="https://www.linkedin.com/in/praveen-kumar7/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">
+                        <i class='bx bxl-linkedin'></i> LinkedIn
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://leetcode.com/u/Praveen_Kumar75/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LeetCode Profile (@Praveen_Kumar75)">
+                        <i class='bx bx-code-curly'></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/praveen-kumar7/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="mailto:praveen1622kumar@gmail.com" class="social-btn" title="Email Praveen">
+                        <i class='bx bx-envelope'></i>
+                    </a>
+                    <a href="https://www.instagram.com/alphaname__/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100051953089956" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="avatar-wrapper">
+                    <div class="avatar-inner">
+                        <img src="image.png?v=2" alt="Praveen Kumar" class="avatar-img" onerror="this.style.display='none'; document.getElementById('avatarInitials').style.display='flex';">
+                        <div id="avatarInitials" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(0,242,254,0.15), rgba(139,92,246,0.15)); font-size:4.5rem; font-weight:800; color:var(--accent-cyan); font-family:var(--font-heading);">PK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class='bx bx-user'></i> About Me
+                </div>
+                <h2 class="section-title">Driven by <span>Curiosity & Innovation</span></h2>
+                <p class="section-subtitle">
+                    Transforming complex computing concepts into elegant, functional digital experiences.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-text">
+                        <h3>Hello! I'm Praveen Kumar</h3>
+                        <p>
+                            I am a passionate undergraduate student pursuing a <strong>B.Tech in Computer Science and Engineering</strong> with a specialization in <strong>Artificial Intelligence and Machine Learning</strong> at <strong>Lovely Professional University (LPU)</strong>.
+                        </p>
+                        <p>
+                            My enthusiasm lies at the intersection of intelligent algorithms and scalable software development. I constantly refine my abilities in Data Structures & Algorithms, Machine Learning fundamentals, and full-stack web technologies to build practical solutions that make a meaningful technological impact.
+                        </p>
+
+                        <div class="highlight-box">
+                            <p>
+                                <i class='bx bx-check-circle' style="color: var(--accent-cyan); margin-right: 6px;"></i>
+                                Committed to continuous learning, collaborative problem solving, and technological innovation.
+                            </p>
+                        </div>
+
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Projects Built</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Tech Skills</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Dedication</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class='bx bx-brain'></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Artificial Intelligence & Data Science</h4>
+                            <p>Exploring machine learning models, predictive data analysis, and intelligent automation using Python and modern data science ecosystems.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class='bx bx-code-block'></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Data Structures & Problem Solving</h4>
+                            <p>Strengthening core algorithmic foundations with focus on optimal time & space complexity, recursion, trees, graphs, and dynamic programming.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class='bx bx-layout'></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Responsive Modern Web Design</h4>
+                            <p>Crafting accessible, pixel-perfect, and engaging user interfaces utilizing modern HTML5, CSS3, JavaScript, and responsive design principles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class='bx bx-code'></i> Technical Matrix
+                </div>
+                <h2 class="section-title">Skills & <span>Expertise</span></h2>
+                <p class="section-subtitle">
+                    A snapshot of the languages, frameworks, tools, and methodologies in my tech stack.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Category 1: Languages -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class='bx bx-code-alt'></i>
+                        </div>
+                        <h3>Programming Languages</h3>
+                    </div>
+
+                    <div class="skill-items">
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bxl-python'></i> Python</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="90" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bxl-c-plus-plus'></i> C++ & C</span>
+                                <span class="skill-percent">82%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="82" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bxl-java'></i> Java</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="80" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-data'></i> SQL (MySQL)</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="85" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-tags">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">C++</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">C</span>
+                        <span class="skill-badge">MySQL</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Frameworks & Concepts -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class='bx bx-cube-alt'></i>
+                        </div>
+                        <h3>Frameworks &amp; Concepts</h3>
+                    </div>
+
+                    <div class="skill-items">
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-git-branch'></i> Data Structures &amp; Algorithms (DSA)</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="85" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-cube'></i> Object-Oriented Programming (OOP)</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="88" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bxl-html5'></i> HTML5 &amp; CSS3</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="88" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-brain'></i> Machine Learning (Scikit-Learn)</span>
+                                <span class="skill-percent">82%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="82" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-tags">
+                        <span class="skill-badge">DSA</span>
+                        <span class="skill-badge">OOP</span>
+                        <span class="skill-badge">HTML5 / CSS3</span>
+                        <span class="skill-badge">Gradient Boosting</span>
+                        <span class="skill-badge">Computer Vision</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Tools & Platforms -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class='bx bx-terminal'></i>
+                        </div>
+                        <h3>Tools &amp; Platforms</h3>
+                    </div>
+
+                    <div class="skill-items">
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bxl-git'></i> Git &amp; GitHub</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="88" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-network-chart'></i> RESTful APIs</span>
+                                <span class="skill-percent">84%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="84" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-data'></i> RDBMS &amp; MySQL</span>
+                                <span class="skill-percent">82%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="82" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bxl-visual-studio'></i> VS Code &amp; Linux</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="85" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-tags">
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">GitHub</span>
+                        <span class="skill-badge">REST APIs</span>
+                        <span class="skill-badge">RDBMS</span>
+                        <span class="skill-badge">Flask</span>
+                        <span class="skill-badge">Vite</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: Soft Skills & Management -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class='bx bx-user-check'></i>
+                        </div>
+                        <h3>Soft Skills &amp; Management</h3>
+                    </div>
+
+                    <div class="skill-items">
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-bulb'></i> Problem-Solving &amp; Logic</span>
+                                <span class="skill-percent">92%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="92" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-task'></i> Project Management</span>
+                                <span class="skill-percent">86%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="86" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-group'></i> Team Collaboration &amp; Mentorship</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="88" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class='bx bx-check-shield'></i> Cyber-Safety Community Outreach</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-fill" data-width="90" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-tags">
+                        <span class="skill-badge">Problem-Solving</span>
+                        <span class="skill-badge">Project Management</span>
+                        <span class="skill-badge">Public Presentation</span>
+                        <span class="skill-badge">Peer Code Review</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class='bx bx-folder'></i> Featured Work
+                </div>
+                <h2 class="section-title">Projects &amp; <span>Innovations</span></h2>
+                <div class="live-sync-banner">
+                    <span class="live-pulse-dot"></span>
+                    <span class="live-sync-text">Live GitHub Synced</span>
+                    <span class="live-sync-time" id="liveSyncTime">• Real-time updates active</span>
+                </div>
+                <p class="section-subtitle">
+                    Featured open-source projects synchronized directly with the GitHub API. Any code push, star, or repository change reflects here in real time.
+                </p>
+            </div>
+
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="aiml">AI &amp; ML</button>
+                <button class="filter-btn" data-filter="web">Web &amp; IoT</button>
+                <button class="sync-github-btn" id="syncGithubBtn" title="Fetch live updates from GitHub API">
+                    <i class='bx bx-refresh' id="syncBtnIcon"></i> <span id="syncBtnText">Sync Live GitHub</span>
+                </button>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Project 1: LPU Placement Intelligence -->
+                <div class="project-card" data-category="aiml web" data-repo="LPU-Placement-Intelligence" id="card-LPU-Placement-Intelligence">
+                    <div class="project-preview">
+                        <span class="project-badge">Gradient Boosting (96.08%) &middot; Nov'26</span>
+                        <div class="project-stats-badge" title="Live GitHub Stars &amp; Forks">
+                            <span><i class='bx bxs-star'></i> <span class="repo-stars">1</span></span>
+                            <span class="stats-divider">|</span>
+                            <span><i class='bx bx-git-repo-forked'></i> <span class="repo-forks">0</span></span>
+                        </div>
+                        <i class='bx bx-brain project-icon-large'></i>
+                    </div>
+                    <div class="project-body">
+                        <div class="repo-live-meta" title="Live GitHub Activity">
+                            <span class="live-pulse-dot"></span>
+                            <i class='bx bx-git-commit'></i>
+                            <span class="repo-commit-msg">Loading latest push...</span>
+                            <span class="repo-push-time">Live Sync</span>
+                        </div>
+                        <h3 class="project-title">LPU Placement Intelligence — Student Readiness &amp; Skill Gap Analysis</h3>
+                        <p class="project-desc">
+                            End-to-end ML platform using Gradient Boosting (96.08% accuracy) on 253 student records across 9 competency features. Features a React + Vite dashboard with live-sync sliders, institutional Skill Gap Matrix, 30–60-day Action Roadmap, and Flask REST API backend.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">React + Vite</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                            <span class="tech-tag">Gradient Boosting</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/PRAVEEN-LPU/LPU-Placement-Intelligence" target="_blank" rel="noopener noreferrer" class="project-link-btn repo-url-btn">
+                                <i class='bx bxl-github'></i> View on GitHub
+                            </a>
+                            <a href="https://github.com/gnanadeep19/LPU-PLACEMENT-INTELLIGENCE" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Collaborator Repository">
+                                <i class='bx bx-git-repo-forked'></i> Source Repo
+                            </a>
+                            <a href="#contact" class="project-link-btn">
+                                <i class='bx bx-conversation'></i> Discuss
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: SAFA-SVM Hyperparameter Optimization -->
+                <div class="project-card" data-category="aiml" data-repo="safa-svm-hyperparameter-optimization" id="card-safa-svm-hyperparameter-optimization">
+                    <div class="project-preview">
+                        <span class="project-badge">ML Research &middot; Optimization</span>
+                        <div class="project-stats-badge" title="Live GitHub Stars &amp; Forks">
+                            <span><i class='bx bxs-star'></i> <span class="repo-stars">1</span></span>
+                            <span class="stats-divider">|</span>
+                            <span><i class='bx bx-git-repo-forked'></i> <span class="repo-forks">0</span></span>
+                        </div>
+                        <i class='bx bx-chip project-icon-large'></i>
+                    </div>
+                    <div class="project-body">
+                        <div class="repo-live-meta" title="Live GitHub Activity">
+                            <span class="live-pulse-dot"></span>
+                            <i class='bx bx-git-commit'></i>
+                            <span class="repo-commit-msg">Loading latest push...</span>
+                            <span class="repo-push-time">Live Sync</span>
+                        </div>
+                        <h3 class="project-title">SAFA-SVM Hyperparameter Optimization</h3>
+                        <p class="project-desc">
+                            Adaptive Hyperparameter Optimisation of Support Vector Machines Using the Firefly Algorithm: A Novel Approach on the UCI Wine Dataset with Self-Adaptive Attraction Coefficient.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SVM</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                            <span class="tech-tag">Firefly Algorithm</span>
+                            <span class="tech-tag">Optimization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/PRAVEEN-LPU/safa-svm-hyperparameter-optimization" target="_blank" rel="noopener noreferrer" class="project-link-btn repo-url-btn">
+                                <i class='bx bxl-github'></i> View on GitHub
+                            </a>
+                            <a href="#contact" class="project-link-btn">
+                                <i class='bx bx-conversation'></i> Discuss
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: SmartFarmer 7500 -->
+                <div class="project-card" data-category="aiml web" data-repo="smartfarmer7500" id="card-smartfarmer7500">
+                    <div class="project-preview">
+                        <span class="project-badge">AI Platform &middot; Live Production &middot; Apr'26</span>
+                        <div class="project-stats-badge" title="Live GitHub Stars &amp; Forks">
+                            <span><i class='bx bxs-star'></i> <span class="repo-stars">0</span></span>
+                            <span class="stats-divider">|</span>
+                            <span><i class='bx bx-git-repo-forked'></i> <span class="repo-forks">0</span></span>
+                        </div>
+                        <i class='bx bx-leaf project-icon-large'></i>
+                    </div>
+                    <div class="project-body">
+                        <div class="repo-live-meta" title="Live GitHub Activity">
+                            <span class="live-pulse-dot"></span>
+                            <i class='bx bx-git-commit'></i>
+                            <span class="repo-commit-msg">GitHub repository linked</span>
+                            <span class="repo-push-time">Live Sync</span>
+                        </div>
+                        <h3 class="project-title">Smart Farmer — AI Decision-Support Platform</h3>
+                        <p class="project-desc">
+                            Full-stack AI agricultural decision-support platform comprising 6+ integrated modules (Computer Vision, Deep Learning, ML). Includes automated leaf-disease detection, condition-based irrigation alerts synthesizing 8+ environmental metrics, and mandi market analytics.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://smart-farmert.me/" target="_blank" rel="noopener noreferrer" class="project-link-btn demo-url-btn" style="background: rgba(6, 182, 212, 0.2); border-color: var(--accent-cyan); color: #fff;">
+                                <i class='bx bx-link-external'></i> Live Site
+                            </a>
+                            <a href="https://github.com/PRAVEEN-LPU/smartfarmer7500" target="_blank" rel="noopener noreferrer" class="project-link-btn repo-url-btn">
+                                <i class='bx bxl-github'></i> View on GitHub
+                            </a>
+                            <a href="#contact" class="project-link-btn">
+                                <i class='bx bx-conversation'></i> Discuss
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LeetCode & Problem Solving Section (Live Synced) -->
+    <section class="section" id="leetcode">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class='bx bx-code-curly'></i> Competitive Programming
+                </div>
+                <h2 class="section-title">LeetCode &amp; <span>Problem Solving</span></h2>
+                <div class="live-sync-banner leetcode-banner">
+                    <span class="live-pulse-dot"></span>
+                    <span class="live-sync-text">Live LeetCode Synced</span>
+                    <span class="live-sync-time" id="leetcodeSyncTime">• Real-time updates active</span>
+                </div>
+                <p class="section-subtitle">
+                    Real-time DSA problem solving statistics and recent submissions synchronized live from LeetCode. Any newly completed question automatically reflects here.
+                </p>
+                <div class="leetcode-cta-bar">
+                    <a href="https://leetcode.com/u/Praveen_Kumar75/" target="_blank" rel="noopener noreferrer" class="btn btn-leetcode">
+                        <i class='bx bx-link-external'></i> View LeetCode Profile (@Praveen_Kumar75)
+                    </a>
+                    <button class="sync-leetcode-btn" id="syncLeetcodeBtn" title="Sync live updates from LeetCode API">
+                        <i class='bx bx-refresh' id="syncLeetcodeIcon"></i> <span id="syncLeetcodeText">Sync Live LeetCode</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Overview Cards -->
+            <div class="leetcode-stats-grid">
+                <!-- Total Solved Card -->
+                <div class="lc-stat-card total-card">
+                    <div class="lc-card-header">
+                        <span class="lc-badge">Total Solved</span>
+                        <i class='bx bx-trophy lc-icon-glow'></i>
+                    </div>
+                    <div class="lc-number-wrap">
+                        <div class="lc-number" id="lcTotalSolved">177</div>
+                        <div class="lc-label">Problems Solved</div>
+                    </div>
+                    <div class="lc-meta-footer">
+                        <span><i class='bx bx-globe'></i> Global Rank: #<strong id="lcGlobalRank">1,012,184</strong></span>
+                    </div>
+                </div>
+
+                <!-- Easy Card -->
+                <div class="lc-stat-card easy-card">
+                    <div class="lc-card-header">
+                        <span class="lc-badge easy-badge">Easy</span>
+                        <span class="lc-fraction"><span id="lcEasyCount">80</span> / <span id="lcEasyTotal">978</span></span>
+                    </div>
+                    <div class="lc-number" id="lcEasySolved">80</div>
+                    <div class="lc-progress-track">
+                        <div class="lc-progress-fill easy-fill" id="lcEasyProgress" style="width: 8.2%;"></div>
+                    </div>
+                    <div class="lc-card-sub">Foundation &amp; Core Patterns</div>
+                </div>
+
+                <!-- Medium Card -->
+                <div class="lc-stat-card medium-card">
+                    <div class="lc-card-header">
+                        <span class="lc-badge medium-badge">Medium</span>
+                        <span class="lc-fraction"><span id="lcMediumCount">75</span> / <span id="lcMediumTotal">2,152</span></span>
+                    </div>
+                    <div class="lc-number" id="lcMediumSolved">75</div>
+                    <div class="lc-progress-track">
+                        <div class="lc-progress-fill medium-fill" id="lcMediumProgress" style="width: 3.5%;"></div>
+                    </div>
+                    <div class="lc-card-sub">Algorithms &amp; Optimization</div>
+                </div>
+
+                <!-- Hard Card -->
+                <div class="lc-stat-card hard-card">
+                    <div class="lc-card-header">
+                        <span class="lc-badge hard-badge">Hard</span>
+                        <span class="lc-fraction"><span id="lcHardCount">22</span> / <span id="lcHardTotal">994</span></span>
+                    </div>
+                    <div class="lc-number" id="lcHardSolved">22</div>
+                    <div class="lc-progress-track">
+                        <div class="lc-progress-fill hard-fill" id="lcHardProgress" style="width: 2.2%;"></div>
+                    </div>
+                    <div class="lc-card-sub">Advanced Structures &amp; DP</div>
+                </div>
+            </div>
+
+            <!-- Last 5 Solved Questions Panel -->
+            <div class="leetcode-recent-panel">
+                <div class="recent-panel-header">
+                    <div class="recent-title-group">
+                        <div class="recent-icon-wrap">
+                            <i class='bx bx-check-double'></i>
+                        </div>
+                        <div>
+                            <h3 class="recent-title">Last 5 Solved Questions</h3>
+                            <p class="recent-desc">Live submissions automatically pulled from LeetCode account</p>
+                        </div>
+                    </div>
+                    <div class="recent-status-pill">
+                        <span class="live-pulse-dot"></span> Auto-Updates on New Submissions
+                    </div>
+                </div>
+
+                <div class="recent-questions-list" id="recentQuestionsList">
+                    <!-- Default initial items loaded, immediately updated via API -->
+                    <div class="question-row">
+                        <div class="q-left">
+                            <span class="q-index">1</span>
+                            <div class="q-details">
+                                <a href="https://leetcode.com/problems/maximum-subarray-with-equal-products/" target="_blank" rel="noopener noreferrer" class="q-title">
+                                    Maximum Subarray With Equal Products
+                                    <i class='bx bx-link-external q-ext-icon'></i>
+                                </a>
+                                <div class="q-meta">
+                                    <span class="q-status-tag"><i class='bx bx-check'></i> Accepted</span>
+                                    <span class="q-lang-tag">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="q-right">
+                            <div class="q-date"><i class='bx bx-calendar'></i> Nov 24, 2026</div>
+                            <div class="q-time"><i class='bx bx-time-five'></i> 10:21 PM</div>
+                        </div>
+                    </div>
+
+                    <div class="question-row">
+                        <div class="q-left">
+                            <span class="q-index">2</span>
+                            <div class="q-details">
+                                <a href="https://leetcode.com/problems/product-of-the-last-k-numbers/" target="_blank" rel="noopener noreferrer" class="q-title">
+                                    Product of the Last K Numbers
+                                    <i class='bx bx-link-external q-ext-icon'></i>
+                                </a>
+                                <div class="q-meta">
+                                    <span class="q-status-tag"><i class='bx bx-check'></i> Accepted</span>
+                                    <span class="q-lang-tag">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="q-right">
+                            <div class="q-date"><i class='bx bx-calendar'></i> Nov 23, 2026</div>
+                            <div class="q-time"><i class='bx bx-time-five'></i> 10:41 PM</div>
+                        </div>
+                    </div>
+
+                    <div class="question-row">
+                        <div class="q-left">
+                            <span class="q-index">3</span>
+                            <div class="q-details">
+                                <a href="https://leetcode.com/problems/check-if-all-as-appears-before-all-bs/" target="_blank" rel="noopener noreferrer" class="q-title">
+                                    Check if All A's Appears Before All B's
+                                    <i class='bx bx-link-external q-ext-icon'></i>
+                                </a>
+                                <div class="q-meta">
+                                    <span class="q-status-tag"><i class='bx bx-check'></i> Accepted</span>
+                                    <span class="q-lang-tag">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="q-right">
+                            <div class="q-date"><i class='bx bx-calendar'></i> Nov 22, 2026</div>
+                            <div class="q-time"><i class='bx bx-time-five'></i> 08:13 PM</div>
+                        </div>
+                    </div>
+
+                    <div class="question-row">
+                        <div class="q-left">
+                            <span class="q-index">4</span>
+                            <div class="q-details">
+                                <a href="https://leetcode.com/problems/find-subtree-sizes-after-changes/" target="_blank" rel="noopener noreferrer" class="q-title">
+                                    Find Subtree Sizes After Changes
+                                    <i class='bx bx-link-external q-ext-icon'></i>
+                                </a>
+                                <div class="q-meta">
+                                    <span class="q-status-tag"><i class='bx bx-check'></i> Accepted</span>
+                                    <span class="q-lang-tag">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="q-right">
+                            <div class="q-date"><i class='bx bx-calendar'></i> Nov 21, 2026</div>
+                            <div class="q-time"><i class='bx bx-time-five'></i> 10:16 PM</div>
+                        </div>
+                    </div>
+
+                    <div class="question-row">
+                        <div class="q-left">
+                            <span class="q-index">5</span>
+                            <div class="q-details">
+                                <a href="https://leetcode.com/problems/maximize-consecutive-elements-in-an-array-after-modification/" target="_blank" rel="noopener noreferrer" class="q-title">
+                                    Maximize Consecutive Elements in an Array After Modification
+                                    <i class='bx bx-link-external q-ext-icon'></i>
+                                </a>
+                                <div class="q-meta">
+                                    <span class="q-status-tag"><i class='bx bx-check'></i> Accepted</span>
+                                    <span class="q-lang-tag">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="q-right">
+                            <div class="q-date"><i class='bx bx-calendar'></i> Nov 20, 2026</div>
+                            <div class="q-time"><i class='bx bx-time-five'></i> 11:04 PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Journey Timeline -->
+    <section class="section" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class='bx bx-history'></i> Academic Path &amp; Experience
+                </div>
+                <h2 class="section-title">Education, <span>Milestones &amp; Training</span></h2>
+                <p class="section-subtitle">
+                    Academic qualifications, data structures training, cybersecurity internship, and continuous learning roadmap.
+                </p>
+                <div class="cv-quick-bar">
+                    <button class="btn btn-primary download-cv-btn" title="Download Praveen's Official CV">
+                        <i class='bx bx-download'></i> Download Official CV (PDF)
+                    </button>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <!-- Timeline Item 1: LPU B.Tech -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header-flex">
+                            <span class="timeline-period">Aug'24 - Present</span>
+                            <span class="timeline-score-badge">CGPA: 7.16</span>
+                        </div>
+                        <h3 class="timeline-title">Bachelor of Technology — Computer Science and Engineering</h3>
+                        <div class="timeline-subtitle"><i class='bx bx-map-pin'></i> Lovely Professional University, Phagwara, Punjab</div>
+                        <p class="timeline-desc">
+                            Pursuing specialized degree in Computer Science and Engineering. Core Focus: Data Structures &amp; Algorithms, Object-Oriented Programming (C++/Java/Python), Relational Database Management Systems (MySQL), and Machine Learning.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: Data Structures Training -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header-flex">
+                            <span class="timeline-period">Jun–Jul'26</span>
+                            <span class="timeline-tag-badge">Technical Training</span>
+                        </div>
+                        <h3 class="timeline-title">Data Structures Training — Fundamentals of Data Structures</h3>
+                        <div class="timeline-subtitle"><i class='bx bx-buildings'></i> Centre for Professional Enhancement, Lovely Professional University</div>
+                        <p class="timeline-desc">
+                            • Completed intensive training on core data structures (arrays, linked lists, stacks, queues, trees, graphs) with hands-on implementation in C++ and Java.<br>
+                            • Applied concepts by building three mini-projects: a task scheduler (priority queue), file-system simulator (tree traversal), and social-network graph (BFS/DFS).<br>
+                            • Strengthened algorithmic problem-solving through timed coding exercises and peer code reviews targeting optimal time/space complexity.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1kMjCphewtBLgbw1AXBJozyMCBZObfrmv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="timeline-link-btn">
+                            <i class='bx bx-award'></i> View Training Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: CSR Project Internship -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header-flex">
+                            <span class="timeline-period">Jul–Aug'25</span>
+                            <span class="timeline-tag-badge">CSR Internship</span>
+                        </div>
+                        <h3 class="timeline-title">CSR Project Internship — CyberSmart Awareness</h3>
+                        <div class="timeline-subtitle"><i class='bx bx-shield-quarter'></i> WNS Cares Foundation (CSR arm of WNS Global Services)</div>
+                        <p class="timeline-desc">
+                            • Applied presentation, tutoring, and community outreach skills to drive cyber-safety awareness across school communities; awarded completion certificate.<br>
+                            • Designed and delivered interactive cybersecurity workshops covering phishing, password hygiene, and safe-browsing practices to 200+ students across three schools.<br>
+                            • Collaborated with a cross-functional team of 8 volunteers to plan session schedules and document outreach impact metrics for the foundation's quarterly report.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1lu90A97dSeZ53psa4Riv6CGiJG86h0qX/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="timeline-link-btn">
+                            <i class='bx bx-award'></i> View Internship Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4: Ben-Hur Public School -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header-flex">
+                            <span class="timeline-period">Apr'22 - Mar'23</span>
+                            <span class="timeline-score-badge">Score: 64.6%</span>
+                        </div>
+                        <h3 class="timeline-title">Senior Secondary (Class XII - CBSE)</h3>
+                        <div class="timeline-subtitle"><i class='bx bx-map-pin'></i> Ben-Hur Public School, Pilibhit, Uttar Pradesh</div>
+                        <p class="timeline-desc">
+                            Completed Senior Secondary education with core coursework in Physics, Chemistry, and Advanced Mathematics (PCM), cultivating analytical thinking and structured problem-solving skills.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5: GNG Academy -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header-flex">
+                            <span class="timeline-period">Apr'20 - Mar'21</span>
+                            <span class="timeline-score-badge">Score: 79.3%</span>
+                        </div>
+                        <h3 class="timeline-title">Secondary School Examination (Class X - CBSE)</h3>
+                        <div class="timeline-subtitle"><i class='bx bx-map-pin'></i> GNG Academy, Pilibhit, Uttar Pradesh</div>
+                        <p class="timeline-desc">
+                            Completed Secondary School Examination with distinction, building rigorous academic foundations in Mathematics, Science, and Logical Reasoning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section (Aligned with CV) -->
+    <section class="section" id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class='bx bx-certification'></i> Verified Credentials
+                </div>
+                <h2 class="section-title">Industry &amp; Academic <span>Certifications</span></h2>
+                <p class="section-subtitle">
+                    Verified certifications spanning Cloud AI, Generative AI, Machine Learning, Data Structures, and Object-Oriented Programming.
+                </p>
+            </div>
+
+            <div class="cert-grid">
+                <!-- Cert 1: Oracle -->
+                <div class="cert-card">
+                    <div class="cert-icon oracle">
+                        <i class='bx bxl-google-cloud'></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Oracle Cloud Infrastructure Certified AI Foundations Associate</h4>
+                        <p>Fundamental concepts of AI, Machine Learning, Deep Learning, and Cloud AI services on Oracle Cloud.</p>
+                        <div class="cert-footer">
+                            <span class="cert-date"><i class='bx bx-award'></i> Oracle &bull; Aug'26</span>
+                            <a href="https://www.linkedin.com/posts/praveen-kumar-37889027b_oracle-oci-artificialintelligence-activity-7492217136510242816-XW0x?utm_source=share&utm_medium=member_desktop&rcm=ACoAAERLqwwBob_y1PwG-DddQeFcbCLs224SCUA" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+                                <i class='bx bx-badge-check'></i> Verify Credential
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 2: Udemy Generative AI -->
+                <div class="cert-card">
+                    <div class="cert-icon udemy">
+                        <i class='bx bx-bot'></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Generative AI for Beginners</h4>
+                        <p>Foundations of Large Language Models, Prompt Engineering, Generative Image models, and AI workflow integration.</p>
+                        <div class="cert-footer">
+                            <span class="cert-date"><i class='bx bx-award'></i> Udemy &bull; Aug'26</span>
+                            <a href="https://drive.google.com/file/d/1nGkF0sTlIJaej-at6TUOr9XMnwpnXiqB/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+                                <i class='bx bx-file'></i> View Certificate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 3: NPTEL -->
+                <div class="cert-card">
+                    <div class="cert-icon nptel">
+                        <i class='bx bx-math'></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Mathematical Foundations of Machine Learning</h4>
+                        <p>Linear algebra, multivariate calculus, probability distributions, matrix factorizations, and optimization for ML.</p>
+                        <div class="cert-footer">
+                            <span class="cert-date"><i class='bx bx-award'></i> NPTEL &bull; May'26</span>
+                            <a href="https://www.linkedin.com/posts/praveen-kumar-37889027b_nptel-machinelearning-artificialintelligence-activity-7498689528770179073-cR8J?utm_source=share&utm_medium=member_desktop&rcm=ACoAAERLqwwBob_y1PwG-DddQeFcbCLs224SCUA" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+                                <i class='bx bx-badge-check'></i> Verify Credential
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 4: Java Neocolab -->
+                <div class="cert-card">
+                    <div class="cert-icon java">
+                        <i class='bx bxl-java'></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Programming in Java</h4>
+                        <p>Comprehensive Java programming: JVM architecture, OOP principles, collections framework, exception handling, and I/O streams.</p>
+                        <div class="cert-footer">
+                            <span class="cert-date"><i class='bx bx-award'></i> Neocolab &bull; May'26</span>
+                            <a href="https://drive.google.com/file/d/1Kmb5-JULdtCY-CSEuSIZWT0S3mEWv87i/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+                                <i class='bx bx-file'></i> View Certificate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 5: DSA Neocolab -->
+                <div class="cert-card">
+                    <div class="cert-icon dsa">
+                        <i class='bx bx-git-branch'></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Data Structures and Algorithms</h4>
+                        <p>Practical implementation and complexity analysis of linear/non-linear data structures, searching, sorting, and dynamic programming.</p>
+                        <div class="cert-footer">
+                            <span class="cert-date"><i class='bx bx-award'></i> Neocolab &bull; Jan'26</span>
+                            <a href="https://drive.google.com/file/d/1pa_YtTkGtTJFPWkj2fRdSPI_fN5hyBKa/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+                                <i class='bx bx-file'></i> View Certificate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cert 6: OOP Neocolab -->
+                <div class="cert-card">
+                    <div class="cert-icon oop">
+                        <i class='bx bx-cube'></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Object-Oriented Programming</h4>
+                        <p>Deep-dive into abstraction, encapsulation, inheritance, polymorphism, design patterns, and clean code architecture.</p>
+                        <div class="cert-footer">
+                            <span class="cert-date"><i class='bx bx-award'></i> Neocolab &bull; Jan'26</span>
+                            <a href="https://drive.google.com/file/d/1ROW8nxLkcYFSkVsi5KN_EEKZW0aFdjPN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+                                <i class='bx bx-file'></i> View Certificate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class='bx bx-message-square-dots'></i> Get in Touch
+                </div>
+                <h2 class="section-title">Let's <span>Connect & Collaborate</span></h2>
+                <p class="section-subtitle">
+                    Feel free to reach out for internship opportunities, technical collaborations, or just a friendly tech conversation!
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class='bx bxl-linkedin'></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn Profile</h4>
+                            <a href="https://www.linkedin.com/in/praveen-kumar7/" target="_blank" rel="noopener noreferrer">
+                                linkedin.com/in/praveen-kumar7
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <a href="mailto:praveen1622kumar@gmail.com">
+                                praveen1622kumar@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class='bx bx-map-pin'></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location / University</h4>
+                            <p>Lovely Professional University, Punjab, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" action="https://formsubmit.co/praveen1622kumar@gmail.com" method="POST">
+                        <!-- Anti-spam Honeypot -->
+                        <input type="text" name="_honey" style="display:none">
+                        <!-- Disable Captcha for frictionless visitor UX -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- Email response template format -->
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" id="hiddenSubject" value="New Portfolio Message from Praveen Kumar Portfolio">
+
+                        <div class="form-group">
+                            <label class="form-label" for="senderName">Your Name</label>
+                            <input type="text" id="senderName" name="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="senderEmail">Your Email</label>
+                            <input type="email" id="senderEmail" name="email" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="senderSubject">Subject</label>
+                            <input type="text" id="senderSubject" name="subject" class="form-control" placeholder="Internship, Project Inquiry, or Hello" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="senderMessage">Message</label>
+                            <textarea id="senderMessage" name="message" class="form-control" placeholder="Type your message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class='bx bx-send'></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class='bx bx-check-circle'></i>
+        <div class="toast-msg">Message sent successfully!</div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class='bx bx-chevron-up'></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    Praveen <span>Kumar</span>
+                </div>
+
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#leetcode">LeetCode</a></li>
+                    <li><a href="#journey">Journey</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="social-links">
+                    <a href="https://leetcode.com/u/Praveen_Kumar75/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LeetCode Profile (@Praveen_Kumar75)">
+                        <i class='bx bx-code-curly'></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/praveen-kumar7/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="mailto:praveen1622kumar@gmail.com" class="social-btn" title="Email">
+                        <i class='bx bx-envelope'></i>
+                    </a>
+                    <a href="https://www.instagram.com/alphaname__/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Praveen Kumar. All rights reserved. Crafted with passion &amp; modern web standards.</p>
+                <button class="owner-portal-trigger" id="openCvModalBtn" title="Owner CV Portal (Password Protected)">
+                    <i class='bx bx-lock-alt'></i> Owner Portal
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Attach & Manage CV Modal (Password Protected) -->
+    <div class="cv-modal-backdrop" id="cvModalBackdrop">
+        <div class="cv-modal-card">
+            <div class="cv-modal-header">
+                <div class="cv-modal-title">
+                    <i class='bx bx-shield-quarter'></i>
+                    <h3 id="modalTitleText">Owner Portal — CV Management</h3>
+                </div>
+                <button class="cv-modal-close" id="closeCvModalBtn" aria-label="Close modal">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+
+            <!-- Screen 1: Password Authentication Gate -->
+            <div class="cv-auth-panel" id="cvAuthPanel">
+                <div class="auth-lock-icon">
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <h4>Owner Verification Required</h4>
+                <p class="auth-desc">
+                    Only Praveen can upload or attach a new CV. Please enter your secret admin password to unlock:
+                </p>
+                <form id="cvPasswordForm" onsubmit="return false;">
+                    <div class="auth-input-group">
+                        <i class='bx bx-key'></i>
+                        <input type="password" id="cvAdminPassword" placeholder="Enter admin password" autocomplete="current-password" required>
+                        <button type="button" class="toggle-pwd-btn" id="togglePwdBtn" aria-label="Toggle password visibility">
+                            <i class='bx bx-show' id="togglePwdIcon"></i>
+                        </button>
+                    </div>
+                    <div class="auth-error-msg" id="authErrorMsg"></div>
+                    <div class="auth-actions">
+                        <button type="submit" class="btn btn-primary" id="cvAuthBtn">
+                            <i class='bx bx-lock-open-alt'></i> Unlock CV Manager
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Screen 2: CV Upload & Manager Panel (Unlocked with Admin Password) -->
+            <div class="cv-manager-panel" id="cvManagerPanel" style="display: none;">
+                <div class="auth-success-banner">
+                    <div class="auth-status-left">
+                        <i class='bx bx-check-shield'></i>
+                        <span>Authenticated as Owner</span>
+                    </div>
+                    <button class="lock-session-btn" id="lockSessionBtn" title="Lock session">
+                        <i class='bx bx-lock-alt'></i> Lock
+                    </button>
+                </div>
+
+                <p class="cv-modal-desc">
+                    Upload or attach your latest CV (PDF or DOCX). Once attached, any visitor clicking <strong>"Download CV"</strong> on your portfolio will download this file.
+                </p>
+
+                <!-- Current Active CV Status -->
+                <div class="current-cv-status-card">
+                    <div class="status-icon-wrap">
+                        <i class='bx bxs-file-pdf'></i>
+                    </div>
+                    <div class="status-details">
+                        <div class="status-badge-live">
+                            <span class="live-pulse-dot"></span> Active Resume File
+                        </div>
+                        <h4 id="modalActiveCvName">Praveen_Kumar_Resume.pdf</h4>
+                        <p id="modalActiveCvMeta">Official CV (Compiled from verified profile) &bull; Ready to download</p>
+                    </div>
+                    <button class="btn btn-outline btn-sm download-cv-btn" title="Download Active CV">
+                        <i class='bx bx-download'></i>
+                    </button>
+                </div>
+
+                <!-- Dropzone / File Picker -->
+                <div class="cv-dropzone" id="cvDropzone">
+                    <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" style="display: none;">
+                    <i class='bx bx-cloud-upload dropzone-icon'></i>
+                    <h4>Click or drag &amp; drop to attach new CV</h4>
+                    <p class="dropzone-sub">Accepts PDF, DOCX (Max: 15MB)</p>
+                    <div class="selected-file-preview" id="selectedFilePreview" style="display: none;">
+                        <i class='bx bx-check-circle'></i>
+                        <span id="selectedFileName">No file chosen</span>
+                        <span id="selectedFileSize">(0 KB)</span>
+                    </div>
+                </div>
+
+                <div class="cv-modal-footer">
+                    <button class="btn btn-ghost" id="resetCvBtn" title="Reset to default CV">
+                        <i class='bx bx-reset'></i> Reset to Default
+                    </button>
+                    <div class="modal-footer-actions">
+                        <button class="btn btn-outline" id="cancelCvModalBtn">Cancel</button>
+                        <button class="btn btn-primary" id="saveCvBtn" disabled>
+                            <i class='bx bx-check'></i> Attach This CV
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic Script -->
+    <script src="script.js"></script>
+</body>
+</html>

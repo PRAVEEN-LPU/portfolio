@@ -1,0 +1,12 @@
+# Exclude personal media, photos and CV/PDF documents from GitHub
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.zip
+
+# Diagnostic and build scripts
+*.py
+*.log
+.venv/
+__pycache__/
