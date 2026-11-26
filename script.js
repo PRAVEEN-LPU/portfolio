@@ -726,7 +726,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.vx = (Math.random() - 0.5) * 0.45;
                 this.vy = (Math.random() - 0.5) * 0.45;
                 this.alpha = Math.random() * 0.5 + 0.25;
-                this.hue = Math.random() > 0.6 ? 190 : 220; // Cyan or Electric Blue
+                this.hue = Math.random() > 0.45 ? 160 : 195; // Cyan or Electric Blue
             }
 
             update() {
@@ -821,7 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(6, 182, 212, ${lineAlpha})`;
+                        ctx.strokeStyle = `rgba(52, 211, 153, ${lineAlpha})`;
                         ctx.lineWidth = 0.8;
                         ctx.stroke();
                     }
