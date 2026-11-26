@@ -96,7 +96,7 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.65;
+    opacity: 0.75;
 }
 
 .grid-pattern-overlay {

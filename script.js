@@ -700,294 +700,144 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 11. Interactive Three.js 3D Particle Animation & Cursor Orb (with 2D Fallback)
+    // 11. Prichard.hu Style Ambient Background Canvas & Cursor Orb
     const starCanvas = document.getElementById('starCanvas');
     const orbCursor = document.getElementById('orbCursor');
 
     if (starCanvas) {
-        let mouse = { x: 0, y: 0, targetX: 0, targetY: 0, px: -1000, py: -1000, targetPx: -1000, targetPy: -1000 };
-        let scrollY = window.pageYOffset || 0;
-        let isRunning = true;
+        const ctx = starCanvas.getContext('2d');
+        let width = (starCanvas.width = window.innerWidth);
+        let height = (starCanvas.height = window.innerHeight);
 
+        let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
+        let particles = [];
+        const particleCount = Math.min(65, Math.floor((width * height) / 18000));
+
+        class StarParticle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 1.8 + 0.6;
+                this.baseSize = this.size;
+                this.vx = (Math.random() - 0.5) * 0.45;
+                this.vy = (Math.random() - 0.5) * 0.45;
+                this.alpha = Math.random() * 0.5 + 0.25;
+                this.hue = Math.random() > 0.6 ? 190 : 220; // Cyan or Electric Blue
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Screen wrapping
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+
+                // Gentle mouse repulsion
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120 && dist > 0) {
+                    const force = (120 - dist) / 120;
+                    this.x -= (dx / dist) * force * 2;
+                    this.y -= (dy / dist) * force * 2;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${this.hue}, 90%, 65%, ${this.alpha})`;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = `hsla(${this.hue}, 90%, 60%, 0.8)`;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new StarParticle());
+        }
+
+        // Window resize handler
+        window.addEventListener('resize', () => {
+            width = starCanvas.width = window.innerWidth;
+            height = starCanvas.height = window.innerHeight;
+        });
+
+        // Mouse move tracking
         window.addEventListener('mousemove', (e) => {
-            mouse.targetX = (e.clientX / window.innerWidth) * 2 - 1;
-            mouse.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
-            mouse.targetPx = e.clientX;
-            mouse.targetPy = e.clientY;
+            mouse.targetX = e.clientX;
+            mouse.targetY = e.clientY;
             if (orbCursor) orbCursor.style.opacity = '0.65';
         });
 
         window.addEventListener('mouseleave', () => {
-            mouse.targetX = 0;
-            mouse.targetY = 0;
-            mouse.targetPx = -1000;
-            mouse.targetPy = -1000;
+            mouse.targetX = -1000;
+            mouse.targetY = -1000;
             if (orbCursor) orbCursor.style.opacity = '0';
         });
 
-        window.addEventListener('scroll', () => {
-            scrollY = window.pageYOffset || 0;
-        }, { passive: true });
+        // Animation loop
+        let isRunning = true;
+        document.addEventListener('visibilitychange', () => {
+            isRunning = !document.hidden;
+            if (isRunning) requestAnimationFrame(render);
+        });
 
-        let threeInitialized = false;
+        let cursorCurrentX = -1000;
+        let cursorCurrentY = -1000;
 
-        if (typeof THREE !== 'undefined') {
-            try {
-                const scene = new THREE.Scene();
-                const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-                camera.position.set(0, 0, 14);
+        function render() {
+            if (!isRunning) return;
 
-                const renderer = new THREE.WebGLRenderer({
-                    canvas: starCanvas,
-                    alpha: true,
-                    antialias: true,
-                    powerPreference: 'high-performance'
-                });
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+            // Smooth cursor interpolation
+            cursorCurrentX += (mouse.targetX - cursorCurrentX) * 0.08;
+            cursorCurrentY += (mouse.targetY - cursorCurrentY) * 0.08;
+            mouse.x = cursorCurrentX;
+            mouse.y = cursorCurrentY;
 
-                // Build 3D Particle Galaxy / Cosmic Sphere + Wave Field
-                const count = window.innerWidth < 768 ? 2200 : 4500;
-                const positions = new Float32Array(count * 3);
-                const colors = new Float32Array(count * 3);
-                const sizes = new Float32Array(count);
-                const randoms = new Float32Array(count * 3);
-
-                const colorCyan = new THREE.Color('#00f2fe');
-                const colorBlue = new THREE.Color('#2563eb');
-                const colorPurple = new THREE.Color('#8b5cf6');
-
-                for (let i = 0; i < count; i++) {
-                    const i3 = i * 3;
-                    const isCore = i < count * 0.65;
-
-                    if (isCore) {
-                        // 3D Toroidal / Spiral Galaxy Field
-                        const radius = Math.pow(Math.random(), 0.75) * 9.5 + 1.2;
-                        const branchAngle = (i % 4) * ((Math.PI * 2) / 4);
-                        const spinAngle = radius * 0.55;
-                        const angle = branchAngle + spinAngle + (Math.random() - 0.5) * 0.6;
-
-                        const spread = (Math.random() - 0.5) * (1.8 + radius * 0.25);
-                        positions[i3] = Math.cos(angle) * radius + (Math.random() - 0.5) * 1.2;
-                        positions[i3 + 1] = spread;
-                        positions[i3 + 2] = Math.sin(angle) * radius + (Math.random() - 0.5) * 1.2;
-                    } else {
-                        // Ambient 3D Spherical Stardust
-                        const r = 6 + Math.random() * 14;
-                        const theta = Math.random() * Math.PI * 2;
-                        const phi = Math.acos(2 * Math.random() - 1);
-                        positions[i3] = r * Math.sin(phi) * Math.cos(theta);
-                        positions[i3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-                        positions[i3 + 2] = r * Math.cos(phi);
-                    }
-
-                    // Color blend: Cyan -> Electric Blue -> Violet
-                    const mixRatio = Math.random();
-                    const mixedColor = mixRatio < 0.45
-                        ? colorCyan.clone().lerp(colorBlue, Math.random())
-                        : colorBlue.clone().lerp(colorPurple, Math.random());
-
-                    colors[i3] = mixedColor.r;
-                    colors[i3 + 1] = mixedColor.g;
-                    colors[i3 + 2] = mixedColor.b;
-
-                    sizes[i] = Math.random() * 2.2 + 0.6;
-                    randoms[i3] = Math.random() * Math.PI * 2;
-                    randoms[i3 + 1] = Math.random() * 0.8 + 0.2;
-                    randoms[i3 + 2] = Math.random() * 0.8 + 0.2;
-                }
-
-                const geometry = new THREE.BufferGeometry();
-                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-                geometry.setAttribute('aColor', new THREE.BufferAttribute(colors, 3));
-                geometry.setAttribute('aSize', new THREE.BufferAttribute(sizes, 1));
-                geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 3));
-
-                const material = new THREE.ShaderMaterial({
-                    depthWrite: false,
-                    blending: THREE.AdditiveBlending,
-                    transparent: true,
-                    uniforms: {
-                        uTime: { value: 0 },
-                        uPixelRatio: { value: Math.min(window.devicePixelRatio || 1, 2) },
-                        uMouse: { value: new THREE.Vector2(0, 0) },
-                        uScroll: { value: 0 }
-                    },
-                    vertexShader: `
-                        uniform float uTime;
-                        uniform float uPixelRatio;
-                        uniform vec2 uMouse;
-                        uniform float uScroll;
-
-                        attribute vec3 aColor;
-                        attribute float aSize;
-                        attribute vec3 aRandom;
-
-                        varying vec3 vColor;
-                        varying float vAlpha;
-
-                        void main() {
-                            vColor = aColor;
-
-                            vec3 pos = position;
-                            float phase = aRandom.x;
-                            float speed = aRandom.y;
-
-                            // Organic 3D wave & curl float
-                            pos.x += sin(uTime * 0.45 * speed + phase + pos.y * 0.35) * 0.35;
-                            pos.y += cos(uTime * 0.40 * speed + phase + pos.x * 0.35) * 0.35;
-                            pos.z += sin(uTime * 0.35 * speed + phase + pos.x * 0.25) * 0.35;
-
-                            // Interactive 3D mouse repulsion/ripple
-                            vec2 mouseWorld = uMouse * vec2(10.0, 6.0);
-                            float distToMouse = distance(pos.xy, mouseWorld);
-                            float influence = smoothstep(4.2, 0.0, distToMouse);
-                            vec2 dir = normalize(pos.xy - mouseWorld + vec2(0.0001));
-                            pos.xy += dir * influence * 1.15;
-                            pos.z += influence * 1.8;
-
-                            vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-                            gl_Position = projectionMatrix * mvPosition;
-
-                            // Size attenuation in 3D space
-                            float pulse = 0.85 + 0.25 * sin(uTime * 1.6 * speed + phase);
-                            gl_PointSize = aSize * pulse * uPixelRatio * (68.0 / max(-mvPosition.z, 1.0));
-
-                            // Depth fade
-                            vAlpha = clamp(1.05 - (-mvPosition.z / 28.0), 0.12, 0.85) + influence * 0.25;
-                        }
-                    `,
-                    fragmentShader: `
-                        varying vec3 vColor;
-                        varying float vAlpha;
-
-                        void main() {
-                            float d = distance(gl_PointCoord, vec2(0.5));
-                            if (d > 0.5) discard;
-
-                            // Soft glowing radial particle
-                            float core = smoothstep(0.5, 0.05, d);
-                            float glow = pow(1.0 - d * 2.0, 2.2);
-                            float alpha = (core * 0.4 + glow * 0.85) * vAlpha;
-
-                            gl_FragColor = vec4(vColor + vec3(glow * 0.25), alpha);
-                        }
-                    `
-                });
-
-                const particleMesh = new THREE.Points(geometry, material);
-                // Tilt the galaxy slightly for dramatic 3D perspective
-                particleMesh.rotation.x = 0.35;
-                particleMesh.rotation.z = -0.15;
-                scene.add(particleMesh);
-
-                window.addEventListener('resize', () => {
-                    const w = window.innerWidth;
-                    const h = window.innerHeight;
-                    camera.aspect = w / h;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(w, h);
-                    const pr = Math.min(window.devicePixelRatio || 1, 2);
-                    renderer.setPixelRatio(pr);
-                    material.uniforms.uPixelRatio.value = pr;
-                });
-
-                const clock = new THREE.Clock();
-
-                document.addEventListener('visibilitychange', () => {
-                    isRunning = !document.hidden;
-                    if (isRunning) {
-                        clock.getDelta();
-                        animateThree();
-                    }
-                });
-
-                function animateThree() {
-                    if (!isRunning) return;
-                    const elapsed = clock.getElapsedTime();
-
-                    // Smooth mouse & orb cursor interpolation
-                    mouse.x += (mouse.targetX - mouse.x) * 0.06;
-                    mouse.y += (mouse.targetY - mouse.y) * 0.06;
-                    mouse.px += (mouse.targetPx - mouse.px) * 0.08;
-                    mouse.py += (mouse.targetPy - mouse.py) * 0.08;
-
-                    if (orbCursor && mouse.targetPx > -500) {
-                        orbCursor.style.transform = `translate(${mouse.px}px, ${mouse.py}px) translate(-50%, -50%)`;
-                    }
-
-                    material.uniforms.uTime.value = elapsed;
-                    material.uniforms.uMouse.value.set(mouse.x, mouse.y);
-                    material.uniforms.uScroll.value = scrollY;
-
-                    // Continuous 3D orbital rotation + scroll & mouse parallax
-                    const scrollFactor = scrollY * 0.00055;
-                    particleMesh.rotation.y = elapsed * 0.065 + scrollFactor + mouse.x * 0.25;
-                    particleMesh.rotation.x = 0.35 + Math.sin(elapsed * 0.15) * 0.08 - mouse.y * 0.18 + scrollFactor * 0.3;
-
-                    camera.position.x += (mouse.x * 0.85 - camera.position.x) * 0.04;
-                    camera.position.y += (mouse.y * 0.55 - camera.position.y) * 0.04;
-                    camera.lookAt(0, 0, 0);
-
-                    renderer.render(scene, camera);
-                    requestAnimationFrame(animateThree);
-                }
-
-                animateThree();
-                threeInitialized = true;
-            } catch (err) {
-                console.warn('WebGL Three.js initialization failed, falling back to 2D canvas:', err);
+            if (orbCursor && mouse.targetX > -500) {
+                orbCursor.style.transform = `translate(${cursorCurrentX}px, ${cursorCurrentY}px) translate(-50%, -50%)`;
             }
-        }
 
-        // Graceful 2D Canvas Fallback if Three.js / WebGL is unavailable
-        if (!threeInitialized) {
-            const ctx = starCanvas.getContext('2d');
-            if (ctx) {
-                let width = (starCanvas.width = window.innerWidth);
-                let height = (starCanvas.height = window.innerHeight);
-                const particles = [];
-                const particleCount = Math.min(65, Math.floor((width * height) / 18000));
+            ctx.clearRect(0, 0, width, height);
 
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push({
-                        x: Math.random() * width,
-                        y: Math.random() * height,
-                        size: Math.random() * 1.8 + 0.6,
-                        vx: (Math.random() - 0.5) * 0.45,
-                        vy: (Math.random() - 0.5) * 0.45,
-                        alpha: Math.random() * 0.5 + 0.25,
-                        hue: Math.random() > 0.6 ? 190 : 220
-                    });
-                }
+            // Connect nearby particles with subtle cyber web lines
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
 
-                window.addEventListener('resize', () => {
-                    width = starCanvas.width = window.innerWidth;
-                    height = starCanvas.height = window.innerHeight;
-                });
-
-                function render2D() {
-                    if (!isRunning) return;
-                    mouse.px += (mouse.targetPx - mouse.px) * 0.08;
-                    mouse.py += (mouse.targetPy - mouse.py) * 0.08;
-                    if (orbCursor && mouse.targetPx > -500) {
-                        orbCursor.style.transform = `translate(${mouse.px}px, ${mouse.py}px) translate(-50%, -50%)`;
-                    }
-                    ctx.clearRect(0, 0, width, height);
-                    particles.forEach((p) => {
-                        p.x = (p.x + p.vx + width) % width;
-                        p.y = (p.y + p.vy + height) % height;
+                    if (dist < 105) {
+                        const lineAlpha = (1 - dist / 105) * 0.18;
                         ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                        ctx.fillStyle = `hsla(${p.hue}, 90%, 65%, ${p.alpha})`;
-                        ctx.fill();
-                    });
-                    requestAnimationFrame(render2D);
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(6, 182, 212, ${lineAlpha})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
                 }
-                render2D();
             }
+
+            // Update & draw particles
+            particles.forEach((p) => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(render);
         }
+
+        render();
     }
 
     // 12. Attach & Universal Download CV System (Password-Protected Owner Upload / Public Download)
